@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Res = require("../models/res");
+const Record = require("../models/record");
 // 載入 auth middleware
 const { authenticated } = require("../config/auth");
 
@@ -10,7 +10,7 @@ router.get("/new", authenticated, (req, res) => {
 });
 // 顯示一筆詳細內容
 router.get("/:id", authenticated, (req, res) => {
-  Res.findById(
+  Record.findById(
     { _id: req.params.id, userId: req.user._id },
     (err, restaurants) => {
       if (err) return console.error(err);
@@ -20,7 +20,7 @@ router.get("/:id", authenticated, (req, res) => {
 });
 // 新增一筆
 router.post("/", authenticated, (req, res) => {
-  const restaurant = new Res({
+  const restaurant = new Record({
     name: req.body.name,
     en_name: req.body.en_name,
     category: req.body.category,
@@ -39,7 +39,7 @@ router.post("/", authenticated, (req, res) => {
 });
 // 修改頁面
 router.get("/:id/edit", authenticated, (req, res) => {
-  Res.findById(
+  Record.findById(
     { _id: req.params.id, userId: req.user._id },
     (err, restaurants) => {
       if (err) return console.error(err);
@@ -49,7 +49,7 @@ router.get("/:id/edit", authenticated, (req, res) => {
 });
 // 修改
 router.put("/:id/edit", authenticated, (req, res) => {
-  Res.findById(
+  Record.findById(
     { _id: req.params.id, userId: req.user._id },
     (err, restaurants) => {
       if (err) return console.error(err);
@@ -71,7 +71,7 @@ router.put("/:id/edit", authenticated, (req, res) => {
 });
 // 刪除
 router.delete("/:id/delete", authenticated, (req, res) => {
-  Res.findById(
+  Record.findById(
     { _id: req.params.id, userId: req.user._id },
     (err, restaurants) => {
       if (err) return console.error(err);

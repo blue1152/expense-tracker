@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const resSchema = new Schema({
+const recordSchema = new Schema({
   name: {
     type: String, // 資料型別: 字串
     required: true // 必填欄位
@@ -47,4 +47,4 @@ const resSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model("Res", resSchema);
+module.exports = mongoose.model("Record", recordSchema);
