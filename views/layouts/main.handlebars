@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Ivy's favorite restaurants</title>
+  <title>家庭記帳本－廣志の私帳</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css">
   <link rel="stylesheet" href="/stylesheets/bootstrap.css">
   <link rel="stylesheet" href="/stylesheets/index.css">
@@ -18,23 +18,21 @@
       <div class="container">
         <a class="navbar-brand" href="/">
           <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
-            width="30" height="30" class="d-inline-block align-top" alt="Ivy的餐廳清單">
-          Ivy的餐廳清單
+            width="30" height="30" class="d-inline-block align-top" alt="廣志の私帳">
+          廣志の私帳
         </a>
 
         {{#if isAuthenticated}}
-        <a href="/users/logout" class="btn btn-outline-info">Logout</a>
-        <div><a href="/restaurants/new">新增1筆餐廳資料</a></div>
+        <a href="/users/logout" class="btn btn-outline-info">登出</a>
+        <div><a href="/restaurants/new">新增1筆</a></div>
         <form class="form-inline my-2 my-lg-0 form-bar" action="/search">
-          <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="輸入餐廳名字or分類" aria-label="Search"
+          <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="輸入名稱or分類" aria-label="Search"
             value="{{keyword}}">
           <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Go</button>
         </form>
         {{else}}
-        <a href="/users/login" class="btn btn-outline-info">Login</a>
+        <a href="/users/login" class="btn btn-outline-info">登入</a>
         {{/if}}
-
-
       </div>
     </nav>
     <div class="banner"></div>

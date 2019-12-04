@@ -22,14 +22,8 @@ router.get("/:id", authenticated, (req, res) => {
 router.post("/", authenticated, (req, res) => {
   const restaurant = new Record({
     name: req.body.name,
-    en_name: req.body.en_name,
     category: req.body.category,
-    image: req.body.image,
-    location: req.body.location,
-    phone: req.body.phone,
-    google_map: req.body.google_map,
-    rating: req.body.rating,
-    description: req.body.description,
+    amount: req.body.amount,
     userId: req.user._id
   });
   restaurant.save(err => {
@@ -54,14 +48,8 @@ router.put("/:id/edit", authenticated, (req, res) => {
     (err, restaurants) => {
       if (err) return console.error(err);
       restaurants.name = req.body.name;
-      restaurants.en_name = req.body.en_name;
       restaurants.category = req.body.category;
-      restaurants.image = req.body.image;
-      restaurants.location = req.body.location;
-      restaurants.phone = req.body.phone;
-      restaurants.google_map = req.body.google_map;
-      restaurants.rating = req.body.rating;
-      restaurants.description = req.body.description;
+      restaurants.amount = req.body.amount;
       restaurants.save(err => {
         if (err) return console.error(err);
         return res.redirect(`/restaurants/${req.params.id}`);
