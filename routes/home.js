@@ -6,9 +6,9 @@ const { authenticated } = require("../config/auth");
 
 // setting routes
 router.get("/", authenticated, (req, res) => {
-  Record.find({ userId: req.user._id }, (err, restaurants) => {
+  Record.find({ userId: req.user._id }, (err, records) => {
     if (err) return console.error(err);
-    return res.render("index", { restaurants: restaurants }); // 將資料傳給 index
+    return res.render("index", { records: records }); // 將資料傳給 index
   });
 });
 //搜尋框
@@ -23,9 +23,9 @@ router.get("/search", authenticated, (req, res) => {
         { category: { $regex: keywordRegex } }
       ]
     },
-    (err, restaurants) => {
+    (err, records) => {
       if (err) return console.error(err);
-      return res.render("index", { restaurants, keyword });
+      return res.render("index", { records, keyword });
     }
   );
 });

@@ -64,7 +64,7 @@ app.use((req, res, next) => {
 
 // setting routes
 app.use("/", require("./routes/home"));
-app.use("/restaurants", require("./routes/record"));
+app.use("/records", require("./routes/record"));
 app.use("/users", require("./routes/user"));
 
 // listening

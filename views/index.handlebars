@@ -7,17 +7,19 @@
           <tr>
             <th scope="col">支出項目</th>
             <th scope="col">分類</th>
+            <th scope="col">金額</th>
             <th scope="col">編輯</th>
           </tr>
         </thead>
         <tbody>
-          {{#each restaurants}}
+          {{#each records}}
           <tr>
             <td>{{this.name}}</td>
             <td>{{this.category}}</td>
+            <td>{{this.amount}}</td>
             <td>
-              <a href="/restaurants/{{{this.id}}}/edit" class="btn btn-success btn-sm mr-2">edit</a>
-              <form action="/restaurants/{{{this.id}}}/delete?_method=DELETE" method="POST" style="display: inline;">
+              <a href="/records/{{{this.id}}}/edit" class="btn btn-success btn-sm mr-2">edit</a>
+              <form action="/records/{{{this.id}}}/delete?_method=DELETE" method="POST" style="display: inline;">
                 <button type="submit" class="btn btn-danger btn-sm">delete</button>
               </form>
             </td>

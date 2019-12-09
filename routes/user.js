@@ -63,6 +63,12 @@ router.post("/register", (req, res) => {
           email,
           password
         });
+        newUser
+          .save()
+          .then(user => {
+            res.redirect("/"); // 新增完成導回首頁  **待新增"註冊成功"的提示
+          })
+          .catch(err => console.log(err));
       }
     });
   }
