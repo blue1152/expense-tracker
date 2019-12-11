@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Record = require("../record");
+const bcrypt = require("bcryptjs");
 const User = require("../user");
 
 const { users: userList } = require("../../user.json");
@@ -18,22 +19,27 @@ db.once("open", () => {
 
   userList.forEach((user, index) => {
     // create users
-    User.create({
-      name: user.name,
-      email: user.email,
-      password: user.password
-    }).then(users => {
-      // #1 - #3 for user1; #4 - #5 for user2
-      const records = index ? dataList.slice(3, 5) : dataList.slice(0, 3);
-      records.forEach(record => {
-        Record.create({
-          name: record.name,
-          category: record.category,
-          amount: record.amount,
-          userId: users._id
+    bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(user.password, salt, (err, hash) => {
+        if (err) throw err;
+        User.create({
+          name: user.name,
+          email: user.email,
+          password: hash
+        }).then(users => {
+          // #1 - #3 for user1; #4 - #5 for user2
+          const data = index ? dataList.slice(3, 5) : dataList.slice(0, 3);
+          data.forEach(data => {
+            Record.create({
+              name: data.name,
+              category: data.category,
+              amount: data.amount,
+              userId: users._id
+            });
+          });
         });
       });
     });
   });
+  console.log("restaurant and user seeds are created");
 });
-console.log("record data and user seeds are created");
