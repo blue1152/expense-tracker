@@ -1,4 +1,4 @@
-# 老爸的私房錢(專案尚未完成)
+# 老爸的私房錢(陽春版)
 
 利用 Node.js 跟 Express 建立簡單的伺服器，使用 mongoDB 作為資料庫，並搭配 Bootstrap 打造出簡易的記帳軟體
 
@@ -44,7 +44,7 @@ $ npm install
 打開終端機，在 models/seeds 目錄下，執行 Seeders.js 來建立資料庫中的種子資料：
 
 ```
-$ nodemon Seeders.js
+$ npm run seeder
 ```
 
 ### 透過 nodemon 來啟動伺服器
