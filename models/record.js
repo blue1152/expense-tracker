@@ -19,7 +19,7 @@ const recordSchema = new Schema({
   },
   amount: {
     //金額
-    type: String,
+    type: Number,
     required: true
   },
   // userId，建立跟 User 的關聯

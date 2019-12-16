@@ -12,11 +12,11 @@
                   支出分類：
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="/">家居物業</a>
-                  <a class="dropdown-item" href="/">交通出行</a>
-                  <a class="dropdown-item" href="/">休閒娛樂</a>
-                  <a class="dropdown-item" href="/">餐飲食品</a>
-                  <a class="dropdown-item" href="/">其他</a>
+                  <a class="dropdown-item" href="/category/home">家居物業</a>
+                  <a class="dropdown-item" href="/category/traffic">交通出行</a>
+                  <a class="dropdown-item" href="/category/relax">休閒娛樂</a>
+                  <a class="dropdown-item" href="/category/food">餐飲食品</a>
+                  <a class="dropdown-item" href="/category/others">其他</a>
                 </div>
               </div>
             </td>
@@ -25,7 +25,9 @@
             <td>
               <h3>總金額：</h3>
               <div class="alert alert-warning" role="alert">
-                A simple warning alert—check it out!
+                {{#if records}}
+                {{this.total}}
+                {{/if}}
               </div>
             </td>
           </tr>
