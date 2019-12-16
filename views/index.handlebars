@@ -5,50 +5,43 @@
       <table class="table table-borderless text-center">
         <tbody>
           <tr>
+            <td></td>
             <td>
               <div class="dropdown">
-                <button class="btn btn-lg btn-info dropdown-toggle" type="button" id="category" data-toggle="dropdown"
+                <button class="btn btn-info dropdown-toggle" type="button" id="category" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
-                  支出分類：
+                  支出分類
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="/category/home">家居物業</a>
-                  <a class="dropdown-item" href="/category/traffic">交通出行</a>
-                  <a class="dropdown-item" href="/category/relax">休閒娛樂</a>
-                  <a class="dropdown-item" href="/category/food">餐飲食品</a>
-                  <a class="dropdown-item" href="/category/others">其他</a>
+                  <a class="dropdown-item" href="/">全部</a>
+                  <a class="dropdown-item" href="/category/home"><i class="fas fa-home"></i> 家居物業</a>
+                  <a class="dropdown-item" href="/category/traffic"><i class="fas fa-shuttle-van"></i> 交通出行</a>
+                  <a class="dropdown-item" href="/category/relax"><i class="fas fa-grin-beam"></i> 休閒娛樂</a>
+                  <a class="dropdown-item" href="/category/food"><i class="fas fa-utensils"></i> 餐飲食品</a>
+                  <a class="dropdown-item" href="/category/others"><i class="fas fa-pen"></i> 其他</a>
                 </div>
               </div>
             </td>
+            <td></td>
           </tr>
           <tr>
-            <td>
-              <h3>總金額：</h3>
-              <div class="alert alert-warning" role="alert">
-                {{#if records}}
-                {{this.total}}
-                {{/if}}
-              </div>
+            <td></td>
+            <td class="table-info" style="width: 30rem;">
+              <span>總金額：</span>
+              <h3 id="sum">
+              </h3>
             </td>
+            <td></td>
           </tr>
-
         </tbody>
       </table>
-      <table class="table table-hover text-center">
-        <thead>
-          <tr>
-            <th scope="col">支出項目</th>
-            <th scope="col">分類</th>
-            <th scope="col">金額</th>
-            <th scope="col">編輯</th>
-          </tr>
-        </thead>
+      <table class="table table-hover text-center" style="width: 30rem;" align="center">
         <tbody>
           {{#each records}}
           <tr>
+            <td id="category">{{this.category}}</td>
             <td>{{this.name}}</td>
-            <td>{{this.category}}</td>
-            <td>{{this.amount}}</td>
+            <td id="cost">{{this.amount}}</td>
             <td>
               <a href="/records/{{{this.id}}}/edit" class="btn btn-success btn-sm mr-2">edit</a>
               <form action="/records/{{{this.id}}}/delete?_method=DELETE" method="POST" style="display: inline;">
