@@ -24,7 +24,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // db setting
-mongoose.connect("mongodb://localhost/record", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/record", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true
@@ -73,6 +73,6 @@ app.use("/users", require("./routes/user"));
 app.use("/auth", require("./routes/auths"));
 
 // listening
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Express is listening on localhost`);
 });

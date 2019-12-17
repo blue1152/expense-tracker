@@ -6,7 +6,9 @@ const User = require("../user");
 const { users: userList } = require("../../user.json");
 const { results: dataList } = require("../../record.json");
 
-mongoose.connect("mongodb://127.0.0.1/record", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1/record", {
+  useNewUrlParser: true
+});
 
 const db = mongoose.connection;
 
